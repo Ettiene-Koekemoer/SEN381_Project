@@ -1,0 +1,5 @@
+@Proj2WebAPI_HostAddress = http://localhost:7075
+
+GET {{Proj2WebAPI_HostAddress}}/api/superhero
+
+###
