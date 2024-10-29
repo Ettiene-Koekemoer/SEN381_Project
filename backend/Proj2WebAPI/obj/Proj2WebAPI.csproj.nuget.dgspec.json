@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\Project_Test\\Proj2WebAPI\\Proj2WebAPI.csproj": {}
+    "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\SEN381_Project\\backend\\Proj2WebAPI\\Proj2WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\Project_Test\\Proj2WebAPI\\Proj2WebAPI.csproj": {
+    "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\SEN381_Project\\backend\\Proj2WebAPI\\Proj2WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\Project_Test\\Proj2WebAPI\\Proj2WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\SEN381_Project\\backend\\Proj2WebAPI\\Proj2WebAPI.csproj",
         "projectName": "Proj2WebAPI",
-        "projectPath": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\Project_Test\\Proj2WebAPI\\Proj2WebAPI.csproj",
+        "projectPath": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\SEN381_Project\\backend\\Proj2WebAPI\\Proj2WebAPI.csproj",
         "packagesPath": "C:\\Users\\lieli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\Project_Test\\Proj2WebAPI\\obj\\",
+        "outputPath": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\SEN381_Project\\backend\\Proj2WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lieli\\AppData\\Roaming\\NuGet\\NuGet.Config",

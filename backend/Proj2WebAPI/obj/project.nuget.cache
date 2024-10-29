@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BDihpT7tJYg=",
+  "dgSpecHash": "nG73izlvOMU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\Project_Test\\Proj2WebAPI\\Proj2WebAPI.csproj",
+  "projectFilePath": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\SEN381_Project\\backend\\Proj2WebAPI\\Proj2WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lieli\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\lieli\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

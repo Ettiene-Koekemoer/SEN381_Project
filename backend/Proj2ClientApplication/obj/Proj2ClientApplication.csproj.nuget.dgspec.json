@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\Project_Test\\Proj2ClientApplication\\Proj2ClientApplication.csproj": {}
+    "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\SEN381_Project\\backend\\Proj2ClientApplication\\Proj2ClientApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\Project_Test\\Proj2ClientApplication\\Proj2ClientApplication.csproj": {
+    "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\SEN381_Project\\backend\\Proj2ClientApplication\\Proj2ClientApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\Project_Test\\Proj2ClientApplication\\Proj2ClientApplication.csproj",
+        "projectUniqueName": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\SEN381_Project\\backend\\Proj2ClientApplication\\Proj2ClientApplication.csproj",
         "projectName": "Proj2ClientApplication",
-        "projectPath": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\Project_Test\\Proj2ClientApplication\\Proj2ClientApplication.csproj",
+        "projectPath": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\SEN381_Project\\backend\\Proj2ClientApplication\\Proj2ClientApplication.csproj",
         "packagesPath": "C:\\Users\\lieli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\Project_Test\\Proj2ClientApplication\\obj\\",
+        "outputPath": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\SEN381_Project\\backend\\Proj2ClientApplication\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lieli\\AppData\\Roaming\\NuGet\\NuGet.Config",

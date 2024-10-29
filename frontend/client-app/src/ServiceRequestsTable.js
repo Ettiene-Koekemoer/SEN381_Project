@@ -7,7 +7,7 @@ const ServiceRequestsTable = () => {
     const [selectedClient, setSelectedClient] = useState(null);
     
     useEffect(() => {
-        axios.get(`https://localhost:7075/api/ServiceRequest`)
+        axios.get(`https://localhost:7031/api/ServiceRequest`)
             .then(response => {
                 console.log(response.data); 
                 // Filter out requests with status 'Complete'
@@ -20,7 +20,7 @@ const ServiceRequestsTable = () => {
     }, []);
 
     const handleServiceRequestClick = (clientId) => {
-        axios.get(`https://localhost:7075/api/Clients/${clientId}`)
+        axios.get(`https://localhost:7031/api/Clients/${clientId}`)
             .then(response => {
                 setSelectedClient(response.data);
             })
@@ -31,7 +31,7 @@ const ServiceRequestsTable = () => {
 
     const sendSms = async (phoneNumber, message) => {
         try {
-            const response = await axios.post(`https://localhost:7075/api/ServiceRequest/send-sms?phoneNumber=${encodeURIComponent(phoneNumber)}&message=${encodeURIComponent(message)}`);
+            const response = await axios.post(`https://localhost:7031/api/ServiceRequest/send-sms?phoneNumber=${encodeURIComponent(phoneNumber)}&message=${encodeURIComponent(message)}`);
             console.log(response.data);
         } catch (error) {
             console.error('Error sending SMS:', error);

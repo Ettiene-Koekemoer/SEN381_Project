@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\Project_Test\\Proj2Technician\\Proj2Technician.csproj": {}
+    "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\SEN381_Project\\backend\\Proj2Technician\\Proj2Technician.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\Project_Test\\Proj2Technician\\Proj2Technician.csproj": {
+    "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\SEN381_Project\\backend\\Proj2Technician\\Proj2Technician.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\Project_Test\\Proj2Technician\\Proj2Technician.csproj",
+        "projectUniqueName": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\SEN381_Project\\backend\\Proj2Technician\\Proj2Technician.csproj",
         "projectName": "Proj2Technician",
-        "projectPath": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\Project_Test\\Proj2Technician\\Proj2Technician.csproj",
+        "projectPath": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\SEN381_Project\\backend\\Proj2Technician\\Proj2Technician.csproj",
         "packagesPath": "C:\\Users\\lieli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\Project_Test\\Proj2Technician\\obj\\",
+        "outputPath": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\SEN381_Project\\backend\\Proj2Technician\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lieli\\AppData\\Roaming\\NuGet\\NuGet.Config",

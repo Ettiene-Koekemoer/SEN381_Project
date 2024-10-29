@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\Project_Test\\Proj2ServiceDesk\\Proj2ServiceDesk.csproj",
+      "projectUniqueName": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\SEN381_Project\\backend\\Proj2ServiceDesk\\Proj2ServiceDesk.csproj",
       "projectName": "Proj2ServiceDesk",
-      "projectPath": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\Project_Test\\Proj2ServiceDesk\\Proj2ServiceDesk.csproj",
+      "projectPath": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\SEN381_Project\\backend\\Proj2ServiceDesk\\Proj2ServiceDesk.csproj",
       "packagesPath": "C:\\Users\\lieli\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\Project_Test\\Proj2ServiceDesk\\obj\\",
+      "outputPath": "C:\\Users\\lieli\\OneDrive - belgiumcampus.ac.za\\_Belgium Campus\\Third Year (2024)\\SEN381\\_Project\\Practical\\SEN381_Project\\backend\\Proj2ServiceDesk\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lieli\\AppData\\Roaming\\NuGet\\NuGet.Config",

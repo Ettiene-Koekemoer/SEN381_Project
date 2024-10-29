@@ -10,7 +10,7 @@ const ServiceRequestsTable = () => {
     const [newDetails, setNewDetails] = useState({ issueDescription: '', status: '', priority: '' });
 
     useEffect(() => {
-        axios.get(`https://localhost:7075/api/ServiceRequest`)
+        axios.get(`https://localhost:7031/api/ServiceRequest`)
             .then(response => {
                 const filteredRequests = response.data.filter(request => request.status === 'Complete');
                 setServiceRequests(filteredRequests);
@@ -21,7 +21,7 @@ const ServiceRequestsTable = () => {
     }, []);
 
     const handleServiceRequestClick = (clientId) => {
-        axios.get(`https://localhost:7075/api/Clients/${clientId}`)
+        axios.get(`https://localhost:7031/api/Clients/${clientId}`)
             .then(response => {
                 setSelectedClient(response.data);
             })
@@ -42,7 +42,7 @@ const ServiceRequestsTable = () => {
     const handleUpdate = () => {
         event.preventDefault();
         // Fetch the existing data before updating
-        axios.get(`https://localhost:7075/api/ServiceRequest/${editRequest.serviceRequestId}`)
+        axios.get(`https://localhost:7031/api/ServiceRequest/${editRequest.serviceRequestId}`)
             .then(response => {
                 const existingRequest = response.data;
 
@@ -54,7 +54,7 @@ const ServiceRequestsTable = () => {
                     priority: newDetails.priority
                 };
 
-                return axios.put(`https://localhost:7075/api/ServiceRequest/${editRequest.serviceRequestId}`, updatedRequest);
+                return axios.put(`https://localhost:7031/api/ServiceRequest/${editRequest.serviceRequestId}`, updatedRequest);
             })
             .then(response => {
                 alert('Update successful:', response.data);
