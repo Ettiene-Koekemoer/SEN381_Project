@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Proj2Technician.Job">
+    <Position X="2.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACAAAAAgAgAAAAIAAQAAAAAAIAAAACAAIAAAACgAI=</HashCode>
+      <FileName>Job.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Proj2Technician.JobAssignment">
+    <Position X="4.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAABAAAAAAAAAAAAIAAAACAAACAAAAAAIAAAACAAA=</HashCode>
+      <FileName>JobAssignment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Proj2Technician.Notification">
+    <Position X="6.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAACAAAAAAAEAAAAAAAAAAAAAAAAIAIAACACA=</HashCode>
+      <FileName>Notification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Proj2Technician.StatusUpdate">
+    <Position X="8" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAgAAAAAAAIAAAAKAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StatusUpdate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Proj2Technician.Technician">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAgAoAAAAKEAAQABCQEAAAAAIAABAAAAAA=</HashCode>
+      <FileName>Technician.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
