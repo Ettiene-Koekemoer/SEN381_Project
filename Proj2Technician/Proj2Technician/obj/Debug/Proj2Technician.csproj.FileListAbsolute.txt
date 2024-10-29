@@ -1,0 +1,7 @@
+C:\Users\lieli\OneDrive - belgiumcampus.ac.za\_Belgium Campus\Third Year (2024)\SEN381\_Project\Practical\SEN381_Project\Proj2Technician\Proj2Technician\bin\Debug\Proj2Technician.exe.config
+C:\Users\lieli\OneDrive - belgiumcampus.ac.za\_Belgium Campus\Third Year (2024)\SEN381\_Project\Practical\SEN381_Project\Proj2Technician\Proj2Technician\bin\Debug\Proj2Technician.exe
+C:\Users\lieli\OneDrive - belgiumcampus.ac.za\_Belgium Campus\Third Year (2024)\SEN381\_Project\Practical\SEN381_Project\Proj2Technician\Proj2Technician\bin\Debug\Proj2Technician.pdb
+C:\Users\lieli\OneDrive - belgiumcampus.ac.za\_Belgium Campus\Third Year (2024)\SEN381\_Project\Practical\SEN381_Project\Proj2Technician\Proj2Technician\obj\Debug\Proj2Technician.csproj.AssemblyReference.cache
+C:\Users\lieli\OneDrive - belgiumcampus.ac.za\_Belgium Campus\Third Year (2024)\SEN381\_Project\Practical\SEN381_Project\Proj2Technician\Proj2Technician\obj\Debug\Proj2Technician.csproj.CoreCompileInputs.cache
+C:\Users\lieli\OneDrive - belgiumcampus.ac.za\_Belgium Campus\Third Year (2024)\SEN381\_Project\Practical\SEN381_Project\Proj2Technician\Proj2Technician\obj\Debug\Proj2Technician.exe
+C:\Users\lieli\OneDrive - belgiumcampus.ac.za\_Belgium Campus\Third Year (2024)\SEN381\_Project\Practical\SEN381_Project\Proj2Technician\Proj2Technician\obj\Debug\Proj2Technician.pdb
