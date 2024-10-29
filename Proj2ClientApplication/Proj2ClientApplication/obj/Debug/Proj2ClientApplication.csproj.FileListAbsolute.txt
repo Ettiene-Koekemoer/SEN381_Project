@@ -1,7 +1,0 @@
-C:\Users\lieli\OneDrive - belgiumcampus.ac.za\_Belgium Campus\Third Year (2024)\SEN381\_Project\Practical\SEN381_Project\Proj2ClientApplication\Proj2ClientApplication\bin\Debug\Proj2ClientApplication.exe.config
-C:\Users\lieli\OneDrive - belgiumcampus.ac.za\_Belgium Campus\Third Year (2024)\SEN381\_Project\Practical\SEN381_Project\Proj2ClientApplication\Proj2ClientApplication\bin\Debug\Proj2ClientApplication.exe
-C:\Users\lieli\OneDrive - belgiumcampus.ac.za\_Belgium Campus\Third Year (2024)\SEN381\_Project\Practical\SEN381_Project\Proj2ClientApplication\Proj2ClientApplication\bin\Debug\Proj2ClientApplication.pdb
-C:\Users\lieli\OneDrive - belgiumcampus.ac.za\_Belgium Campus\Third Year (2024)\SEN381\_Project\Practical\SEN381_Project\Proj2ClientApplication\Proj2ClientApplication\obj\Debug\Proj2ClientApplication.csproj.AssemblyReference.cache
-C:\Users\lieli\OneDrive - belgiumcampus.ac.za\_Belgium Campus\Third Year (2024)\SEN381\_Project\Practical\SEN381_Project\Proj2ClientApplication\Proj2ClientApplication\obj\Debug\Proj2ClientApplication.csproj.CoreCompileInputs.cache
-C:\Users\lieli\OneDrive - belgiumcampus.ac.za\_Belgium Campus\Third Year (2024)\SEN381\_Project\Practical\SEN381_Project\Proj2ClientApplication\Proj2ClientApplication\obj\Debug\Proj2ClientApplication.exe
-C:\Users\lieli\OneDrive - belgiumcampus.ac.za\_Belgium Campus\Third Year (2024)\SEN381\_Project\Practical\SEN381_Project\Proj2ClientApplication\Proj2ClientApplication\obj\Debug\Proj2ClientApplication.pdb
