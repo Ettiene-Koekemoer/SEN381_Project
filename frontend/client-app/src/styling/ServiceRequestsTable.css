@@ -4,8 +4,8 @@
 
 #serviceRequestsHeading, #clientDetailsHeading, #sendDetailsHeading, #editDetailsHeading {
   color: #1E4CA1;
-text-align: center;
-margin-top: 3%;
+  text-align: center;
+  margin-top: 3%;
 }
 
 .clientDetails {
