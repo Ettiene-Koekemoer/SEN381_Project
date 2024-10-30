@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './ServiceRequestsTable.css';
+import './styling/ServiceRequestsTable.css';
 
 const ServiceRequestsTable = () => {
     const [serviceRequests, setServiceRequests] = useState([]);

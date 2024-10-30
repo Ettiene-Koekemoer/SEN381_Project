@@ -1,7 +1,7 @@
 import React from 'react';
 import ServiceRequestsTable from './ServiceRequestHistory'; 
-import './App.css';
-import arrow from './arrow.png';
+import './styling/App.css';
+import arrow from './images/arrow.png';
 
 function AppPast() {
   const goToDashboard = () => {
