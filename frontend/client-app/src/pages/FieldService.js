@@ -22,8 +22,8 @@ function FieldService() {
         <h1>Field Service Management</h1>
       </header> 
 
-      <div classname="field-container">
-        <h2>Field Service Management Centre</h2>
+      <div className="field-container">
+        <h2 id='fieldServiceHeading'>Field Service Management Centre</h2>
         <div class="field-top">
           <div className='field-top-left'>
             <h2>Service Requests</h2>
@@ -41,35 +41,35 @@ function FieldService() {
           </div>
 
           <div className='field-top-right'>
-            <h2>Escalte or Reassign Service Request</h2>
+            <h2>Escalate or Reassign Service Request</h2>
             <form className='escalate-container'>
               <div>
-                <label htmlFor='jobID'>Job ID:</label>
+                <label htmlFor='jobID'><h3>Job ID:</h3></label>
                 <input type='text' id='jobID' name='jobID' required />
               </div>
 
               <div>
-                <label htmlFor='custID'>Customer ID:</label>
+                <label htmlFor='custID'><h3>Customer ID:</h3></label>
                 <input type='text' id='custID' name='custID' required />
               </div>
 
               <div>
-                <label htmlFor='techID'>Technician ID:</label>
+                <label htmlFor='techID'><h3>Technician ID:</h3></label>
                 <input type='text' id='techID' name='techID' required />
               </div>
 
               <div>
-                <label htmlFor='priority'>Priority:</label>
+                <label htmlFor='priority'><h3>Priority:</h3></label>
                 <input type='text' id='priority' name='priority' required />
               </div>
 
               <div>
-                <label htmlFor='schedDate'>Scheduled Date:</label>
+                <label htmlFor='schedDate'><h3>Scheduled Date:</h3></label>
                 <input type='date' id='schedDate' name='schedDate' required />
               </div>
 
               <div>
-                <label htmlFor='compDate'>Completion Date:</label>
+                <label htmlFor='compDate'><h3>Completion Date:</h3></label>
                 <input type='date' id='compDate' name='compDate' required />
               </div>
 
