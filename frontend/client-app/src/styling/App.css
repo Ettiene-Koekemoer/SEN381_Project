@@ -112,7 +112,7 @@ header h1 {
   height: auto;
 }
 
-form input, textarea {
+.container input, textarea {
   width: 98%;
   height: 30px;
   text-align: left;
@@ -123,18 +123,68 @@ form input, textarea {
   padding: 5px 10px;
 }
 
-form textarea {
+.container textarea {
   height: 150px;
   margin: 10px 0px 50px 0px;
 }
 
-form h3 {
+.container h3 {
   margin-bottom: 5px;
   margin-left: 5px;
 }
 
+.survey .button-group {
+  display: flex; 
+  justify-content: space-between;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
 .survey button {
-  width: 250px;
+  padding: 10px 30px;
+  width: 25%; 
+}
+
+#left{
+  margin-left: 0px;
+}
+
+#right{
+  margin-right: 0px;
+}
+
+.survey button h3 {
+  text-align: center;
+  padding: 10px 5px;
+  margin: 0px 0px 0px 0px;
+}
+
+/* Star Rating */
+
+.star-rating-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.star-rating {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  margin: 10px 0; 
+}
+
+.star {
+  font-size: 50px; 
+  cursor: pointer;
+  color: lightgray; 
+  margin: 0 5px; 
+  transition: color 0.2s; 
+  align-self: center;
+}
+
+.star.filled {
+  color: gold;
 }
 
 /* Field Serivce Management form */
