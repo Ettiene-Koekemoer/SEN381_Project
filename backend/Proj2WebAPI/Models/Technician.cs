@@ -3,22 +3,30 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Proj2WebAPI.Models
 {
-    public class RegisteredTechnician
+    public class Technician
     {
         [Key]
         public int TechnicianId { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(100)]
         public string Name { get; set; }
 
         [Required]
+        [StringLength(255)]
+        public string SkillSet { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string Location { get; set; }
+
+        [Required]
         [StringLength(50)]
-        public string Surname { get; set; }
+        public string AvailabilityStatus { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [StringLength(100, MinimumLength = 6, ErrorMessage = "Password must be at least 6 characters long.")]
+        [StringLength(50, MinimumLength = 6, ErrorMessage = "Password must be at least 6 characters long.")]
         public string Password { get; set; }
 
         [NotMapped]

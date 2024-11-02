@@ -8,7 +8,7 @@ namespace Proj2WebAPI.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
-        public DbSet<RegisteredTechnician> RegisteredTechnicians { get; set; }
+        public DbSet<Technician> Technicians { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<ServiceRequest> ServiceRequests { get; set; }
 
