@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './styling/App.css';
-import logo from './images/finalLogo.png';
-import ServiceDesk from './pages/ServiceDesk';
-import FieldService from './pages/FieldService';
+import '../styling/App.css';
+import logo from '../images/finalLogo.png';
+import ServiceDesk from './ServiceDesk';
+import FieldService from './FieldService';
 
 function DashboardTech() {
   const [currentPage, setCurrentPage] = useState('dashboard');

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './styling/App.css';
-import logo from './images/finalLogo.png';
-import ClientManagement from './pages/ClientManagement';
-import CustomerSatisfaction from './pages/CustomerSatisfaction';
+import '../styling/App.css';
+import logo from '../images/finalLogo.png';
+import ClientManagement from './ClientManagement';
+import CustomerSatisfaction from './CustomerSatisfaction';
 
 function DashboardClient() {
   const [currentPage, setCurrentPage] = useState('dashboard');
