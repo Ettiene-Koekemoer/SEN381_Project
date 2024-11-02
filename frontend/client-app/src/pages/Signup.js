@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 function Signup() {
 
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     
     name: '',
@@ -60,13 +61,15 @@ function Signup() {
                     alt="Logo" 
                 />
         
-        
-        <input className='signup-input' name="name" placeholder="Name" onChange={handleChange} />
-        <input className='signup-input' name="surname" placeholder="Surname" onChange={handleChange} />
-        <input className='signup-input' name="password" type="password" placeholder="Password" onChange={handleChange} />
-        <input className='signup-input' name="confirmPassword" type="password" placeholder="Confirm Password" onChange={handleChange} />
+        <div id='signup-input-div'> 
+            <input className='signup-input' name="name" placeholder="Name" onChange={handleChange} />
+            <input className='signup-input' name="surname" placeholder="Surname" onChange={handleChange} />
+            <input className='signup-input' name="password" type="password" placeholder="Password" onChange={handleChange} />
+            <input className='signup-input' name="confirmPassword" type="password" placeholder="Confirm Password" onChange={handleChange} />
+        </div>
+       
         <button id='signup-button' type="submit">Create Account</button>
-        <button id='signup-login-button' type="submit">Or Log In</button>
+        <button id='signup-login-button' type="submit" onClick={GoToLogin}>Or Log In</button>
       </form>
       {error && <p className="error">{error}</p>}
     </div>
@@ -74,3 +77,4 @@ function Signup() {
 }
 
 export default Signup;
+
