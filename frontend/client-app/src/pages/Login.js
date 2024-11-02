@@ -3,6 +3,7 @@ import axios from 'axios';
 import Dashboard from '../Dashboard'; 
 import '../styling/Login.css'
 import logo from '../images/finalLogo.png';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -12,6 +13,12 @@ function Login() {
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false); 
+
+  const navigate = useNavigate();
+
+  const GoToSignup = () => {
+    navigate('/signup');
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -63,7 +70,8 @@ function Login() {
 
       
         
-        <button id='login-button' type="submit">Login</button>
+        <button id='login-button' type="submit">Log In</button>
+        <button id='login-signup-button' type="submit" onClick={GoToSignup}>Sign Up</button>
       </form>
       {error && <p className="error">{error}</p>}
       {successMessage && <p className="success">{successMessage}</p>}
