@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Proj2WebAPI.Models
 {
+    [Table("Technicians")]
     public class Technician
     {
         [Key]
@@ -11,6 +12,10 @@ namespace Proj2WebAPI.Models
         [Required]
         [StringLength(100)]
         public string Name { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string Email { get; set; }
 
         [Required]
         [StringLength(255)]
