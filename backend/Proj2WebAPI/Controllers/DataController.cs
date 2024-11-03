@@ -3,13 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using Proj2WebAPI.Data;
 using Proj2WebAPI.Models;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Proj2WebAPI.Controllers
 {
     [ApiController]
-    [Route("api/contracts")]
+    [Route("api/[controller]")]
     public class DataController : ControllerBase
     {
         private readonly DataContext _context;
@@ -19,63 +18,43 @@ namespace Proj2WebAPI.Controllers
             _context = context;
         }
 
-        // GET: api/contracts
-        [HttpGet]
+        // GET: api/data/contracts
+        [HttpGet("contracts")]
         public async Task<ActionResult<IEnumerable<Contract>>> GetAllContracts()
         {
             var contracts = await _context.Contracts
-                .Include(c => c.Client) 
+                .Include(c => c.Client)  
                 .ToListAsync();
 
             return Ok(contracts);
         }
 
-        // GET: api/contracts/{id}
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Contract>> GetContractById(int id)
+        // GET: api/data/technicians
+        [HttpGet("technicians")]
+        public async Task<ActionResult<IEnumerable<Technician>>> GetAllTechnicians()
         {
-            var contract = await _context.Contracts
-                .Include(c => c.Client) 
-                .FirstOrDefaultAsync(c => c.ContractId == id);
-
-            if (contract == null)
-            {
-                return NotFound("Contract not found.");
-            }
-
-            return Ok(contract);
+            var technicians = await _context.Technicians.ToListAsync();
+            return Ok(technicians);
         }
 
-        // GET: api/contracts/client/{clientId}
-        [HttpGet("client/{clientId}")]
-        public async Task<ActionResult<IEnumerable<Contract>>> GetContractsByClientId(int clientId)
+        // GET: api/data/clients
+        [HttpGet("clients")]
+        public async Task<ActionResult<IEnumerable<Client>>> GetAllClients()
         {
-            var contracts = await _context.Contracts
-                .Where(c => c.ClientId == clientId)
-                .Include(c => c.Client)
+            var clients = await _context.Clients.ToListAsync();
+            return Ok(clients);
+        }
+
+        // GET: api/data/serviceRequests
+        [HttpGet("serviceRequests")]
+        public async Task<ActionResult<IEnumerable<ServiceRequest>>> GetAllServiceRequests()
+        {
+            var serviceRequests = await _context.ServiceRequests
+                .Include(sr => sr.Client)     
+                .Include(sr => sr.Technician)  
                 .ToListAsync();
 
-            if (contracts == null || !contracts.Any())
-            {
-                return NotFound("No contracts found for the specified client.");
-            }
-
-            return Ok(contracts);
-        }
-
-        // POST: api/contracts
-        [HttpPost]
-        public async Task<ActionResult<Contract>> CreateContract(Contract contract)
-        {
-            if (contract == null)
-            {
-                return BadRequest("Contract data is required.");
-            }
-
-            _context.Contracts.Add(contract);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetContractById), new { id = contract.ContractId }, contract);
+            return Ok(serviceRequests);
         }
     }
 }
