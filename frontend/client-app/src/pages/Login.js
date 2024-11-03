@@ -20,7 +20,12 @@ function Login({ accountType }) {
   const navigate = useNavigate();
 
   const GoToSignup = () => {
-    navigate('/signup');
+    // Navigate to the correct signup page based on account type
+    if (accountType === 'technician') {
+      navigate('/signup/tech');
+    } else {
+      navigate('/signup/client');
+    }
   };
 
   const handleChange = (e) => {
@@ -61,13 +66,13 @@ function Login({ accountType }) {
     <div className="App">
       <header className='nav'>
         <button onClick={goToDashboard} className="dashboard-button">
-        <img
-          src={arrow}
-          alt="Arrow"
-          width="50"
-          height="50"
-          backgroundColor="white"
-        />
+          <img
+            src={arrow}
+            alt="Arrow"
+            width="50"
+            height="50"
+            backgroundColor="white"
+          />
         </button>
         <h1>Login</h1>
       </header>
