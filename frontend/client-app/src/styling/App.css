@@ -300,9 +300,9 @@ tr:hover {
   align-items: center;
 }
 
-/* Customer Satisfaction form */
+/* Customer Satisfaction */
 .CustomerSatisfaction {
-  height: 200vh;
+  height: 180vh;
 }
 
 .survey h2 {
@@ -322,6 +322,17 @@ tr:hover {
   height: auto;
 }
 
+.name-surname-container {
+  display: flex; 
+  justify-content: space-between;
+  width: 100%;
+}
+
+.name-surname-input {
+  flex: 1;
+  margin-right: 20px; 
+}
+
 .container input, textarea {
   width: 98%;
   height: 30px;
@@ -330,7 +341,8 @@ tr:hover {
   font-size: medium;
   border: 2px solid black;
   border-radius: 20px;
-  padding: 5px 10px;
+  padding: 10px;
+  font-size: medium;
 }
 
 .container textarea {
@@ -355,11 +367,11 @@ tr:hover {
   width: 25%; 
 }
 
-#left{
+#left {
   margin-left: 0px;
 }
 
-#right{
+#right {
   margin-right: 0px;
 }
 
