@@ -6,9 +6,9 @@ import logo from '../images/finalLogo.png';
 
 function Login() {
   const [formData, setFormData] = useState({
-    userId: '',
+    TechnicianId: '', 
     password: '',
-    isTechnician: true, // Default to technician
+    isTechnician: true, 
   });
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
@@ -32,15 +32,21 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://localhost:7031/api/auth/login', formData);
+      
+      const payload = {
+        TechnicianId: formData.TechnicianId,
+        Password: formData.password,
+      };
+
+      const response = await axios.post('https://localhost:7031/api/auth/login', payload);
       if (response.data) { 
         setSuccessMessage('Login successful!'); 
         setIsLoggedIn(true); 
-        // Redirect based on user type
+        
         if (formData.isTechnician) {
-          navigate('/dashboard-tech'); // Redirect to Technician Dashboard
+          navigate('/dashboardTech'); 
         } else {
-          navigate('/dashboard-client'); // Redirect to Client Dashboard
+          navigate('/dashboardClient'); 
         }
       } else {
         setError('Login failed. Please check your ID and password.');
@@ -71,7 +77,7 @@ function Login() {
         
         <input
           className='login-input'
-          name="userId"
+          name="TechnicianId" 
           placeholder={`${formData.isTechnician ? 'Technician' : 'Client'} ID`}
           onChange={handleChange}
         />
