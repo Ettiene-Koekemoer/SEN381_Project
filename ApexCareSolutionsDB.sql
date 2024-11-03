@@ -30,6 +30,7 @@ GO
 CREATE TABLE Technicians (
 	TechnicianId INT PRIMARY KEY IDENTITY(1,1),
 	Name NVARCHAR(100) NOT NULL,
+	Email NVARCHAR(100) NOT NULL UNIQUE,
 	SkillSet NVARCHAR(255) NOT NULL,
 	Location NVARCHAR(100) NOT NULL,
 	AvailabilityStatus NVARCHAR(50) NOT NULL,
@@ -78,11 +79,11 @@ VALUES
     (3, '2024-03-01', '2024-12-31', 'Basic', 1);
 
 -- Updated for LogIn
-INSERT INTO Technicians (Name, SkillSet, Location, AvailabilityStatus, Password)
+INSERT INTO Technicians (Name, Email, SkillSet, Location, AvailabilityStatus, Password)
 VALUES 
-    ('Mike Ross', 'Electrical, HVAC', 'Pretoria', 'Busy', 'TechPass!2024'),
-    ('Rachel Zane', 'Plumbing, HVAC', 'Cape Town', 'Busy', 'Pass2023@ABC'),
-    ('Louis Litt', 'Networking, Security Systems', 'Bloemfontein', 'Available', '@Little123');
+    ('Mike Ross', 'mike.ross@tech.com', 'Electrical, HVAC', 'Pretoria', 'Busy', 'TechPass!2024'),
+    ('Rachel Zane', 'rachel.zane@tech.com', 'Plumbing, HVAC', 'Cape Town', 'Busy', 'Pass2023@ABC'),
+    ('Louis Litt', 'louis.litt@tech.com', 'Networking, Security Systems', 'Bloemfontein', 'Available', '@Little123');
 
 INSERT INTO ServiceRequests (ClientId, IssueDescription, Priority, Status, AssignedDate)
 VALUES 
