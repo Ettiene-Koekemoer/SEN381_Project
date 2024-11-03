@@ -3,7 +3,7 @@ import '../styling/App.css';
 import arrow from '../images/arrow.png';
 
 function ServiceDesk() {
-   const goToDashboard = () => {
+  const goToDashboard = () => {
     window.location.href = '/dashboardTech';
   };
 

@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import '../styling/SignUp.css';
 import logo from '../images/finalLogo.png';
+import arrow from '../images/arrow.png';
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const goToDashboard = () => {
+    window.location.href = '/dashboardTech';
+  };
+
   const [technician, setTechnician] = useState({
     name: "",
     skillSet: "",
@@ -52,8 +57,17 @@ const Signup = () => {
   };
 
   return (
-    <div>
-      <header id="signup-header">
+    <div className="App">
+      <header className="nav">
+      <button onClick={goToDashboard} className="dashboard-button">
+        <img
+          src={arrow}
+          alt="Arrow"
+          width="50"
+          height="50"
+          backgroundColor="white"
+        />
+        </button>
         <h1>Technician Signup</h1>
       </header>
       

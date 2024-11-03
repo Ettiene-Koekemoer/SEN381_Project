@@ -4,6 +4,7 @@ import logo from '../images/finalLogo.png';
 import Login from './Login'; // Import the Login component
 
 function LandingPage() {
+
   const [currentPage, setCurrentPage] = useState('landingpage');
   const [accountType, setAccountType] = useState(null); // State to store selected account type
 
@@ -18,10 +19,11 @@ function LandingPage() {
         return <Login accountType={accountType} />; // Pass accountType as a prop to Login
       default:
         return (
-          <div>
-            <header>
+          <div className='App'>
+            <header className='nav'>
               <h1>Welcome</h1>
             </header>
+
             <div className="dashboard-container">
               <img className="logo" src={logo} alt="Logo" />
               <h2>Please Select Your Account Type</h2>
