@@ -56,5 +56,40 @@ namespace Proj2WebAPI.Controllers
 
             return Ok(serviceRequests);
         }
+
+        [HttpPut("serviceRequests/{id}")]
+        public async Task<IActionResult> UpdateServiceRequest(int id, [FromBody] ServiceRequest serviceRequest)
+        {
+            if (id != serviceRequest.ServiceRequestId)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(serviceRequest).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ServiceRequestExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        private bool ServiceRequestExists(int id)
+        {
+            return _context.ServiceRequests.Any(e => e.ServiceRequestId == id);
+        }
+
     }
 }
