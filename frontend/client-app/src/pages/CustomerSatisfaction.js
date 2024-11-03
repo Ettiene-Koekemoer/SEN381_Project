@@ -10,7 +10,7 @@ function CustomerSatisfaction() {
   const [satisfactionRating, setSatisfactionRating] = useState(0);
 
   const goToDashboard = () => {
-    window.location.href = './';
+    window.location.href = './dashboardClient';
   };
 
   return (

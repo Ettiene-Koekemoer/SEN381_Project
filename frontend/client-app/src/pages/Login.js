@@ -11,7 +11,7 @@ function Login({ accountType }) {
   };
 
   const [formData, setFormData] = useState({
-    email: '',  // Change userId to email
+    email: '',  
     password: '',
   });
   const [error, setError] = useState('');
@@ -32,7 +32,7 @@ function Login({ accountType }) {
 
     try {
       const payload = {
-        email: formData.email, // Use email instead of userId
+        email: formData.email, 
         password: formData.password,
         isTechnician: accountType === 'technician',
       };
@@ -76,8 +76,8 @@ function Login({ accountType }) {
         
         <input
           className='login-input'
-          name="email" // Change name to email
-          placeholder="Email" // Change placeholder to Email
+          name="email" 
+          placeholder="Email" 
           onChange={handleChange}
         />
         <input

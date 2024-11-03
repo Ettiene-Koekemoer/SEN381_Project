@@ -4,7 +4,7 @@ import arrow from '../images/arrow.png';
 
 function ClientManagement() {
   const goToDashboard = () => {
-    window.location.href = './';
+    window.location.href = './dashboardClient';
   };
 
   return (
