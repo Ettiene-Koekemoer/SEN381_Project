@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styling/App.css';
 import arrow from '../images/arrow.png';
+import RequestsTable from '../tables/RequestsTable';
 
 function FieldService() {
    const goToDashboard = () => {
@@ -26,18 +27,7 @@ function FieldService() {
         <h2 id='fieldServiceHeading'>Field Service Management Centre</h2>
         <div class="field-top">
           <div className='field-top-left'>
-            <h2>Service Requests</h2>
-            <table>
-              <tbody>
-                <tr>
-                  <th>Request ID</th>
-                  <th>Customer ID</th>
-                  <th>Job ID</th>
-                  <th>Description</th>
-                  <th>Priority</th>
-                </tr>
-              </tbody>
-            </table>
+            <RequestsTable/>
           </div>
 
           <div className='field-top-right'>
@@ -49,8 +39,8 @@ function FieldService() {
               </div>
 
               <div>
-                <label htmlFor='custID'><h3>Customer ID:</h3></label>
-                <input type='text' id='custID' name='custID' required />
+                <label htmlFor='custID'><h3>Client ID:</h3></label>
+                <input type='text' name='custID' required />
               </div>
 
               <div>
@@ -59,18 +49,28 @@ function FieldService() {
               </div>
 
               <div>
+                <label htmlFor='issueDescription'><h3>Issue Description:</h3></label>
+                <input type='text' id='issueDescription' name='issueDescription' required />
+              </div>
+
+              <div>
                 <label htmlFor='priority'><h3>Priority:</h3></label>
                 <input type='text' id='priority' name='priority' required />
               </div>
 
               <div>
-                <label htmlFor='schedDate'><h3>Scheduled Date:</h3></label>
-                <input type='date' id='schedDate' name='schedDate' required />
+                <label htmlFor='status'><h3>Status:</h3></label>
+                <input type='text' id='status' name='status' required />
               </div>
 
               <div>
-                <label htmlFor='compDate'><h3>Completion Date:</h3></label>
-                <input type='date' id='compDate' name='compDate' required />
+                <label htmlFor='assignedDate'><h3>Assigned Date:</h3></label>
+                <input type='date' id='assignedDate' name='assignedDate' required />
+              </div>
+
+              <div>
+                <label htmlFor='resolutionDate'><h3>Resolution Date:</h3></label>
+                <input type='date' id='resolutionDate' name='resolutionDate' required />
               </div>
 
               <div className='button-group'>

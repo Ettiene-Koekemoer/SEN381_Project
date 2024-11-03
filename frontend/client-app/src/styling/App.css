@@ -76,7 +76,6 @@ header h1 {
 .button-group button:hover {
   background-color: #598FF2;
   color: black;
-  border: 2px solid black;
   cursor: pointer;
 }
 
@@ -89,6 +88,36 @@ header h1 {
 
 #jobListDiv {
   margin-top: 2%;
+}
+
+/* Table Format */
+table {
+  width: 80%;
+  border-collapse: separate;  
+  border-spacing: 0; 
+  border-radius: 15px;  
+  overflow: hidden;  
+  margin-bottom: 20px;  
+  margin: auto;
+}
+  
+table, th, td {
+  border: 1px solid black;
+}
+  
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+  
+th {
+  background-color: #598FF2;
+  color: white;
+}
+  
+tr:hover {
+  background-color: #e0e0e0;  
+  cursor: pointer;  
 }
 
 /* Sign Up */
@@ -356,8 +385,15 @@ h4 {
   padding: 10px;
   background: linear-gradient(90deg, rgba(89, 143, 242, 0.15) 0%, rgba(51.49, 82.73, 140, 0.15) 100%);
   border-radius: 30px;
-  width: 50%;
   text-align: center;
+}
+
+.field-top-left{
+  width: 70%;
+}
+
+.field-top-right{
+  width: 30%;
 }
 
 .field-bottom {
@@ -392,10 +428,10 @@ h4 {
   flex: 1;
   padding: 5px 10px;
   border: 2px solid black;
-  width: 60%;
+  width: 50%;
   text-align: left;
   font-size: medium;
-  
+  border-radius: 20px;
 }
 
 .escalate-container .button-group {
@@ -407,6 +443,6 @@ h4 {
 }
 
 .escalate-container .button-group button {
-  width: 68%; 
+  width: 69%; 
   padding: 2px;
 }

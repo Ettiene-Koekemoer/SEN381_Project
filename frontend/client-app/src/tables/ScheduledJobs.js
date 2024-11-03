@@ -2,30 +2,21 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styling/App.css';
 
-const RequestsTable = () => {
+const ScheduledJobs = () => {
     const [serviceRequests, setServiceRequests] = useState([]);
-    const [selectedRequest, setSelectedRequest] = useState(null);
 
     useEffect(() => {
         axios.get(`https://localhost:7031/api/data/serviceRequests`)
             .then(response => {
                 console.log(response.data);
-                setServiceRequests(response.data);
+                // Filter requests that don't have a resolution date
+                const unresolvedRequests = response.data.filter(request => !request.resolutionDate);
+                setServiceRequests(unresolvedRequests);
             })
             .catch(error => {
                 console.error('There was an error fetching the service requests!', error);
             });
     }, []);
-
-    const handleRequestClick = (requestId) => {
-        axios.get(`https://localhost:7031/api/data/serviceRequests/${requestId}`)
-            .then(response => {
-                setSelectedRequest(response.data);
-            })
-            .catch(error => {
-                console.error('There was an error fetching the service request details!', error);
-            });
-    };
 
     const formatDate = (date) => {
         if (!date) return 'N/A';
@@ -38,8 +29,8 @@ const RequestsTable = () => {
 
     return (
         <div>
-            <h2 id='serviceRequestsHeading'>Service Requests</h2>
-            <table id='serviceRequests'>
+            <h2 id='scheduledJobsHeading'>Scheduled Jobs</h2>
+            <table id='scheduledJobs'>
                 <thead>
                     <tr>
                         <th>Job ID</th>
@@ -49,13 +40,12 @@ const RequestsTable = () => {
                         <th>Priority</th>
                         <th>Status</th>
                         <th>Assigned Date</th>
-                        <th>Resolution Date</th>
                     </tr>
                 </thead>
                 <tbody>
                     {serviceRequests.length > 0 ? (
                         serviceRequests.map(request => (
-                            <tr key={request.serviceRequestId} onClick={() => handleRequestClick(request.serviceRequestId)}>
+                            <tr key={request.serviceRequestId}>
                                 <td>{request.serviceRequestId}</td>
                                 <td>{request.clientId}</td>
                                 <td>{request.technicianId}</td>
@@ -63,12 +53,11 @@ const RequestsTable = () => {
                                 <td>{request.priority}</td>
                                 <td>{request.status}</td>
                                 <td>{formatDate(request.assignedDate)}</td>
-                                <td>{formatDate(request.resolutionDate)}</td>
                             </tr>
                         ))
                     ) : (
                         <tr>
-                            <td colSpan="6">No service requests available.</td>
+                            <td colSpan="7">No unresolved service requests available.</td>
                         </tr>
                     )}
                 </tbody>
@@ -77,4 +66,4 @@ const RequestsTable = () => {
     );
 };
 
-export default RequestsTable;
+export default ScheduledJobs;
