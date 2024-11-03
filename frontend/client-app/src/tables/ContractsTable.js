@@ -27,6 +27,15 @@ const ContractsTable = () => {
             });
     };
 
+    const formatDate = (date) => {
+        if (!date) return 'N/A';
+        const d = new Date(date);
+        const day = String(d.getDate()).padStart(2, '0');
+        const month = String(d.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+        const year = d.getFullYear();
+        return `${day}/${month}/${year}`;
+    };
+
     return (
         <div>
             <h2 id='contractsHeading'>Contracts</h2>
@@ -37,7 +46,8 @@ const ContractsTable = () => {
                         <th>Client ID</th>
                         <th>Start Date</th>
                         <th>End Date</th>
-                        <th>Status</th>
+                        <th>Service Level</th>
+                        <th>Is Active</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,9 +56,10 @@ const ContractsTable = () => {
                             <tr key={contract.contractId} onClick={() => handleContractClick(contract.contractId)}>
                                 <td>{contract.contractId}</td>
                                 <td>{contract.clientId}</td>
-                                <td>{contract.startDate}</td>
-                                <td>{contract.endDate}</td>
-                                <td>{contract.status}</td>
+                                <td>{formatDate(contract.startDate)}</td>
+                                <td>{formatDate(contract.endDate)}</td>
+                                <td>{contract.serviceLevel}</td>
+                                <td>{contract.isActive ? 'Yes' : 'No'}</td>
                             </tr>
                         ))
                     ) : (
