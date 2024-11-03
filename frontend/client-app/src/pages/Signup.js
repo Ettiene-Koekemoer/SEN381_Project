@@ -1,79 +1,135 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 import '../styling/SignUp.css';
 import logo from '../images/finalLogo.png';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-function Signup() {
-  const [formData, setFormData] = useState({
-    name: '',
-    surname: '',
-    password: '',
-    confirmPassword: '',
-    isTechnician: true, // Default to technician, can be toggled
+const Signup = () => {
+  const [technician, setTechnician] = useState({
+    name: "",
+    skillSet: "",
+    location: "",
+    availabilityStatus: "",
+    password: "",
+    confirmPassword: ""
   });
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const toggleUserType = () => {
-    setFormData({ ...formData, isTechnician: !formData.isTechnician });
+    const { name, value } = e.target;
+    setTechnician((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
+    if (technician.password !== technician.confirmPassword) {
+      setError("Passwords do not match.");
       return;
     }
 
     try {
-      const response = await axios.post('https://localhost:7031/api/auth/register', formData);
-      const inputFields = document.getElementsByClassName('signup-input');
-      for (let i = 0; i < inputFields.length; i++) {
-        inputFields[i].style.border = "2px solid green"; 
+      const response = await axios.post("https://localhost:7031/api/auth/register", technician);
+      if (response.status === 201) {
+        setSuccess(true);
+        setError("");
+        setTechnician({
+          name: "",
+          skillSet: "",
+          location: "",
+          availabilityStatus: "",
+          password: "",
+          confirmPassword: ""
+        });
+
+        // Navigate to login page upon successful registration
+        navigate('/login');
       }
-      GoToLogin();
-    } catch (err) {
-      setError(err.response?.data?.message || 'An error occurred');
+    } catch (error) {
+      setError("An error occurred during registration. Please try again.");
     }
   };
 
-  const GoToLogin = () => {
-    navigate('/login');
-  };
-
   return (
-    <div className="signup-form">
-      <header id='signup-header'>
-        <h1>Sign Up</h1>
+    <div>
+      <header id="signup-header">
+        <h1>Technician Signup</h1>
       </header>
-      <form id='signup-form' onSubmit={handleSubmit}>
+      
+      <form onSubmit={handleSubmit} id="signup-form">
         <img id="logo" src={logo} alt="Logo" />
-        
-        <div className="user-type-toggle">
-          <button type="button" onClick={toggleUserType}>
-            {formData.isTechnician ? "Switch to Client" : "Switch to Technician"}
-          </button>
-          <p>Sign up as {formData.isTechnician ? "Technician" : "Client"}</p>
+
+        <h2 id="technician-subheading">Enter New Technician Details</h2>
+
+        <div id="input-container">
+          <div id="input-one"> 
+            <input className="signup-input"
+              type="text"
+              name="name"
+              value={technician.name}
+              onChange={handleChange}
+              required
+              placeholder="Name"
+            />
+          </div>
+          <div id="input-two">
+            <input className="signup-input"
+              type="text"
+              name="skillSet"
+              placeholder="Skill Set"
+              value={technician.skillSet}
+              onChange={handleChange}
+            />
+          </div>
+          <div id="input-three">
+            <input className="signup-input"
+              type="text"
+              name="location"
+              placeholder="Location"
+              value={technician.location}
+              onChange={handleChange}
+            />
+          </div>
+          <div id="input-four">
+            <input className="signup-input"
+              type="text"
+              name="availabilityStatus"
+              placeholder="Availability Status"
+              value={technician.availabilityStatus}
+              onChange={handleChange}
+            />
+          </div>
+          <div id="input-five">
+            <input className="signup-input"
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={technician.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div id="input-six">
+            <input className="signup-input"
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              value={technician.confirmPassword}
+              onChange={handleChange}
+              required
+            />
+          </div>
         </div>
         
-        <div id='signup-input-div'> 
-          <input className='signup-input' name="name" placeholder="Name" onChange={handleChange} />
-          <input className='signup-input' name="surname" placeholder="Surname" onChange={handleChange} />
-          <input className='signup-input' name="password" type="password" placeholder="Password" onChange={handleChange} />
-          <input className='signup-input' name="confirmPassword" type="password" placeholder="Confirm Password" onChange={handleChange} />
-        </div>
-       
-        <button id='signup-button' type="submit">Create Account</button>
-        <button id='signup-login-button' type="button" onClick={GoToLogin}>Or Log In</button>
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        {success && <p className="success-message" style={{ color: "green" }}>Registration successful!</p>}
+        
+        <button id="signup-button" type="submit">Register</button>
       </form>
-      {error && <p className="error">{error}</p>}
     </div>
   );
-}
+};
 
 export default Signup;
+

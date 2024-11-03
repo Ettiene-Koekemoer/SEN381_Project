@@ -3,8 +3,8 @@ import '../styling/App.css';
 import arrow from '../images/arrow.png';
 
 function FieldService() {
-  const goToDashboard = () => {
-    window.location.href = './';
+   const goToDashboard = () => {
+    window.location.href = '/dashboardTech';
   };
 
   return (
