@@ -12,7 +12,7 @@ const SignupTech = () => {
 
   const [technician, setTechnician] = useState({
     name: "",
-    email: "",  // Added email field
+    email: "",  
     skillSet: "",
     location: "",
     availabilityStatus: "",
@@ -42,7 +42,7 @@ const SignupTech = () => {
         setError("");
         setTechnician({
           name: "",
-          email: "",  // Reset email field
+          email: "",  
           skillSet: "",
           location: "",
           availabilityStatus: "",

@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styling/App.css';
 
-const RequestsTable = () => {
+const RequestsTable = ({ onRequestClick }) => { 
     const [serviceRequests, setServiceRequests] = useState([]);
-    const [selectedRequest, setSelectedRequest] = useState(null);
 
     useEffect(() => {
         axios.get(`https://localhost:7031/api/data/serviceRequests`)
@@ -18,20 +17,14 @@ const RequestsTable = () => {
     }, []);
 
     const handleRequestClick = (requestId) => {
-        axios.get(`https://localhost:7031/api/data/serviceRequests/${requestId}`)
-            .then(response => {
-                setSelectedRequest(response.data);
-            })
-            .catch(error => {
-                console.error('There was an error fetching the service request details!', error);
-            });
+        onRequestClick(requestId); 
     };
 
     const formatDate = (date) => {
         if (!date) return 'N/A';
         const d = new Date(date);
         const day = String(d.getDate()).padStart(2, '0');
-        const month = String(d.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+        const month = String(d.getMonth() + 1).padStart(2, '0'); 
         const year = d.getFullYear();
         return `${day}/${month}/${year}`;
     };
@@ -55,7 +48,7 @@ const RequestsTable = () => {
                 <tbody>
                     {serviceRequests.length > 0 ? (
                         serviceRequests.map(request => (
-                            <tr key={request.serviceRequestId} onClick={() => handleRequestClick(request.serviceRequestId)}>
+                            <tr key={request.serviceRequestId} onClick={() => handleRequestClick(request)}>
                                 <td>{request.serviceRequestId}</td>
                                 <td>{request.clientId}</td>
                                 <td>{request.technicianId}</td>
@@ -68,7 +61,7 @@ const RequestsTable = () => {
                         ))
                     ) : (
                         <tr>
-                            <td colSpan="6">No service requests available.</td>
+                            <td colSpan="8">No service requests available.</td>
                         </tr>
                     )}
                 </tbody>

@@ -47,7 +47,7 @@ const SignupClient = () => {
           password: "",
           confirmPassword: ""
         });
-        navigate('/login'); // Redirect to login after successful signup
+        navigate('/login'); 
       }
     } catch (error) {
       setError("An error occurred during registration. Please try again.");

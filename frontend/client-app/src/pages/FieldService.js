@@ -15,6 +15,7 @@ function FieldService() {
     const [status, setStatus] = useState('');
     const [assignedDate, setAssignedDate] = useState('');
     const [resolutionDate, setResolutionDate] = useState('');
+    const [message, setMessage] = useState(''); 
 
     const goToDashboard = () => {
         window.location.href = '/dashboardTech';
@@ -30,6 +31,7 @@ function FieldService() {
         setStatus(request.status);
         setAssignedDate(request.assignedDate);
         setResolutionDate(request.resolutionDate || '');
+        setMessage(''); 
     };
 
     const handleUpdate = async (e) => {
@@ -47,9 +49,11 @@ function FieldService() {
 
         try {
             await axios.put(`https://localhost:7031/api/data/serviceRequests/${jobId}`, updatedRequest);
-            alert("Service request updated successfully!");
+            setMessage("Service request updated successfully!"); 
+            setSelectedRequest(null); 
         } catch (error) {
             console.error('There was an error updating the service request!', error);
+            setMessage("Error updating service request. Please try again."); 
         }
     };
 
@@ -114,9 +118,9 @@ function FieldService() {
 
                             <div className='button-group'>
                                 <button type="submit"><h3>Update</h3></button>
-                                <button type="button"><h3>Escalate</h3></button>
                             </div>
                         </form>
+                        {message && <div className="message">{message}</div>}
                     </div>
                 </div>
 

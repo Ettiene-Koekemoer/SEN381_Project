@@ -20,7 +20,6 @@ function Login({ accountType }) {
   const navigate = useNavigate();
 
   const GoToSignup = () => {
-    // Navigate to the correct signup page based on account type
     if (accountType === 'technician') {
       navigate('/signup/tech');
     } else {
@@ -47,7 +46,6 @@ function Login({ accountType }) {
         setSuccessMessage('Login successful!'); 
         setIsLoggedIn(true); 
         
-        // Redirect based on account type
         if (accountType === 'technician') {
           navigate('/dashboardTech'); 
         } else {
@@ -74,7 +72,7 @@ function Login({ accountType }) {
             backgroundColor="white"
           />
         </button>
-        <h1>Login</h1>
+        <h1>{accountType.charAt(0).toUpperCase() + accountType.slice(1)} Login</h1>
       </header>
       <form id='login-form' onSubmit={handleSubmit}>
         <img id="logo" src={logo} alt="Logo" />
