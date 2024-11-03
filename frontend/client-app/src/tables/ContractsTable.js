@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styling/App.css';
+import { setActiveContract } from '../state/activeContract';
 
 const ContractsTable = () => {
     const [contracts, setContracts] = useState([]);
-    const [selectedContract, setSelectedContract] = useState(null);
 
     useEffect(() => {
         axios.get(`https://localhost:7031/api/data/contracts`)
             .then(response => {
-                console.log(response.data);
                 setContracts(response.data);
             })
             .catch(error => {
@@ -18,9 +17,9 @@ const ContractsTable = () => {
     }, []);
 
     const handleContractClick = (contractId) => {
-        axios.get(`https://localhost:7031/api/data/contracts${contractId}`)
+        axios.get(`https://localhost:7031/api/data/contracts/${contractId}`)
             .then(response => {
-                setSelectedContract(response.data);
+                setActiveContract(response.data);
             })
             .catch(error => {
                 console.error('There was an error fetching the contract details!', error);
@@ -38,7 +37,7 @@ const ContractsTable = () => {
 
     return (
         <div>
-            <h2 id='contractsHeading'>Contracts</h2>
+            <h2 id='contractsHeading'>Contract History</h2>
             <table id='contracts'>
                 <thead>
                     <tr>
@@ -64,41 +63,11 @@ const ContractsTable = () => {
                         ))
                     ) : (
                         <tr>
-                            <td colSpan="5">No contracts available.</td>
+                            <td colSpan="6">No contracts available.</td>
                         </tr>
                     )}
                 </tbody>
             </table>
-
-            {selectedContract && (
-                <div>
-                    <h2 id='contractDetailsHeading'>Contract Details</h2>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td className='contractDetails'>Contract ID:</td>
-                                <td>{selectedContract.contractId}</td>
-                            </tr>
-                            <tr>
-                                <td className='contractDetails'>Client ID:</td>
-                                <td>{selectedContract.clientId}</td>
-                            </tr>
-                            <tr>
-                                <td className='contractDetails'>Start Date:</td>
-                                <td>{selectedContract.startDate}</td>
-                            </tr>
-                            <tr>
-                                <td className='contractDetails'>End Date:</td>
-                                <td>{selectedContract.endDate}</td>
-                            </tr>
-                            <tr>
-                                <td className='contractDetails'>Status:</td>
-                                <td>{selectedContract.status}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            )}
         </div>
     );
 };

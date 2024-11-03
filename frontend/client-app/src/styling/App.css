@@ -215,27 +215,70 @@ tr:hover {
 }
 
 /* Client Management */
-.activeContract {
-  margin: 4%;
-  width: 30%;
-  background: linear-gradient(90deg, rgba(89, 143, 242, 0.15) 0%, rgba(51.49, 82.73, 140, 0.15) 100%);
-  border-radius: 30px;
-  display: inline-block;
-  padding: 10px;
+.client-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px; 
 }
 
-.contractHistory {
-  margin: 4%;
-  width: 50%;
-  background: linear-gradient(90deg, rgba(89, 143, 242, 0.15) 0%, rgba(51.49, 82.73, 140, 0.15) 100%);
-  border-radius: 30px;
-  display: inline-block;
-  padding: 10px;
+.client-detail {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 
-h4 {
-  display: inline;
-  margin-right: 10%;
+.client-detail.inline {
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+}
+
+.client-detail label {
+  font-weight: bold;
+  margin-right: 10px; 
+}
+
+.client-detail input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #eaeaea;
+  width: 150px; 
+  margin-left: 10px; 
+}
+
+.contracts-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.contracts-table, .contract-details {
+  background-color: rgba(89, 143, 242, 0.15);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.contracts-table h2, .contract-details h2 {
+  margin-top: 0;
+}
+
+.contract-details table td:first-child {
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.contracts-table table {
+  width: 100%;
+}
+
+.contract-details {
+  max-width: 400px;
 }
 
 .searchID {

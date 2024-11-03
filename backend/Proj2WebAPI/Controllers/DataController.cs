@@ -29,6 +29,22 @@ namespace Proj2WebAPI.Controllers
             return Ok(contracts);
         }
 
+        // GET: api/data/contracts/{id}
+        [HttpGet("contracts/{id}")]
+        public async Task<ActionResult<Contract>> GetContractById(int id)
+        {
+            var contract = await _context.Contracts
+                .Include(c => c.Client)  // If you want to include related data, adjust as needed
+                .FirstOrDefaultAsync(c => c.ContractId == id);
+
+            if (contract == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(contract);
+        }
+
         // GET: api/data/technicians
         [HttpGet("technicians")]
         public async Task<ActionResult<IEnumerable<Technician>>> GetAllTechnicians()
