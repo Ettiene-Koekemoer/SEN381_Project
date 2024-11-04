@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Proj2WebAPI.Data;
 using Proj2WebAPI.Models;
@@ -111,26 +112,29 @@ namespace Proj2WebAPI.Controllers
                 return BadRequest("Patch document is null.");
             }
 
-            // Find the existing service request
             var serviceRequest = await _context.ServiceRequests.FindAsync(id);
             if (serviceRequest == null)
             {
                 return NotFound($"Service request with ID {id} not found.");
             }
 
-            // Apply the patch to the service request
-            patchDocument.ApplyTo(serviceRequest, ModelState);
-
-            // Check if the model state is valid after the patch
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                patchDocument.ApplyTo(serviceRequest, (Microsoft.AspNetCore.JsonPatch.Adapters.IObjectAdapter)ModelState);
+
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
             }
 
-            // Save changes to the database
-            await _context.SaveChangesAsync();
-
-            return NoContent(); // Return a No Content status on success
+            return NoContent();
         }
 
         private bool ServiceRequestExists(int id)

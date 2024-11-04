@@ -35,28 +35,24 @@ function ServiceDesk() {
             setErrorMessage('Please select an issue, technician, and priority before assigning.');
             return;
         }
-
-        // Wrap the patch operations in an object
-        const patchDocument = {
-            patchDocument: [
-                { op: "replace", path: "/technicianId", value: selectedTechnicianId },
-                { op: "replace", path: "/priority", value: selectedPriority }
-            ]
-        };
-
+    
+        const patchDocument = [
+            { op: "replace", path: "/technicianId", value: parseInt(selectedTechnicianId, 10) }, // Ensures value is an integer
+            { op: "replace", path: "/priority", value: selectedPriority }
+        ];
+    
         try {
             const response = await fetch(`https://localhost:7031/api/Data/serviceRequests/${selectedIssue.serviceRequestId}`, {
                 method: 'PATCH',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json-patch+json', // Ensures correct content type
                 },
                 body: JSON.stringify(patchDocument),
             });
-
+    
             if (response.ok) {
                 setErrorMessage(''); // Clear any previous error messages
                 alert('Technician assigned successfully!');
-                // Optionally, you can refresh the issue list or the current issue details
             } else {
                 const errorMessage = await response.text();
                 setErrorMessage(`Error assigning technician: ${errorMessage}`);
