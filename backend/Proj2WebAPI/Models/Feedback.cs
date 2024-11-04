@@ -22,12 +22,6 @@ namespace Proj2WebAPI.Models
         public string Comments { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime DateProvided { get; set; } = DateTime.Now;
-
-        [ForeignKey("ClientId")]
-        public Client Client { get; set; }
-
-        [ForeignKey("ServiceRequestId")]
-        public ServiceRequest ServiceRequest { get; set; }
+        public DateOnly DateProvided { get; set; } = DateOnly.FromDateTime(DateTime.Now);
     }
 }

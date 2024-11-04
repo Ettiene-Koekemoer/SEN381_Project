@@ -12,8 +12,8 @@ function CustomerSatisfaction() {
   const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
   const [comment, setComment] = useState('');
-  const [serviceRequestId, setServiceRequestId] = useState(null);
-  const [clientId, setClientId] = useState(null); // Store the fetched client ID
+  const [serviceRequestId, setServiceRequestId] = useState(0);
+  const [clientId, setClientId] = useState(0); // Store the fetched client ID
 
   const goToDashboard = () => {
     window.location.href = './dashboardClient';
@@ -24,10 +24,10 @@ function CustomerSatisfaction() {
     try {
       const fullName = `${name} ${surname}`;
       const response = await axios.get(`https://localhost:7031/api/data/serviceRequests/search?name=${encodeURIComponent(fullName)}&serviceRequestId=${serviceRequestId}`);
-      const id = response.data;
-
+      const id = response.data[0].clientId;
+      
       if (id) {
-        setClientId(id); // Set the client ID based on fetched data
+        setClientId(Number(id)); // Set the client ID based on fetched data
       } else {
         alert('Client not found.');
       }
@@ -40,7 +40,7 @@ function CustomerSatisfaction() {
     e.preventDefault();
     if (!serviceRequestId || !clientId) {
       alert("Please enter valid client details and service request ID.");
-      return;
+      //return;
     }
   
     const averageRating = Math.round((professionalismRating + timelinessRating + satisfactionRating) / 3);
@@ -50,10 +50,12 @@ function CustomerSatisfaction() {
     }
       
     const payload = {
+      FeedbackId: 0,
       ClientId: clientId,
-      ServiceRequestId: serviceRequestId,
+      ServiceRequestId: parseInt(serviceRequestId, 10),
       Rating: averageRating,
       Comments: comment,
+      DateProvided: new Date().toISOString().split('T')[0]
     };
   
     try {
@@ -68,8 +70,8 @@ function CustomerSatisfaction() {
       setSurname('');
       setEmail('');
       setComment('');
-      setServiceRequestId(null);
-      setClientId(null); 
+      setServiceRequestId(0);
+      setClientId(0); 
     } catch (error) {
       console.error('Error submitting feedback:', error);
       alert(`Error submitting feedback: ${error.response?.data?.message || error.message}`);
