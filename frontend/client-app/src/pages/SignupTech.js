@@ -12,6 +12,7 @@ const SignupTech = () => {
 
   const [technician, setTechnician] = useState({
     name: "",
+    surname: "", 
     email: "",  
     skillSet: "",
     location: "",
@@ -35,13 +36,23 @@ const SignupTech = () => {
       return;
     }
 
+    const technicianData = {
+      name: `${technician.name} ${technician.surname}`,
+      email: technician.email,
+      skillSet: technician.skillSet,
+      location: technician.location,
+      availabilityStatus: technician.availabilityStatus,
+      password: technician.password,
+    };
+
     try {
-      const response = await axios.post("https://localhost:7031/api/auth/register/technician", technician);
+      const response = await axios.post("https://localhost:7031/api/auth/register/technician", technicianData);
       if (response.status === 201) {
         setSuccess(true);
         setError("");
         setTechnician({
           name: "",
+          surname: "",
           email: "",  
           skillSet: "",
           location: "",
@@ -74,21 +85,24 @@ const SignupTech = () => {
             <input className="signup-input" type="text" name="name" value={technician.name} onChange={handleChange} required placeholder="Name" />
           </div>
           <div id="input-two">
-            <input className="signup-input" type="email" name="email" placeholder="Email" value={technician.email} onChange={handleChange} required />
+            <input className="signup-input" type="text" name="surname" value={technician.surname} onChange={handleChange} required placeholder="Surname" /> {/* New surname input */}
           </div>
           <div id="input-three">
-            <input className="signup-input" type="text" name="skillSet" placeholder="Skill Set" value={technician.skillSet} onChange={handleChange} />
+            <input className="signup-input" type="email" name="email" placeholder="Email" value={technician.email} onChange={handleChange} required />
           </div>
           <div id="input-four">
-            <input className="signup-input" type="text" name="location" placeholder="Location" value={technician.location} onChange={handleChange} />
+            <input className="signup-input" type="text" name="skillSet" placeholder="Skill Set" value={technician.skillSet} onChange={handleChange} />
           </div>
           <div id="input-five">
-            <input className="signup-input" type="text" name="availabilityStatus" placeholder="Availability Status" value={technician.availabilityStatus} onChange={handleChange} />
+            <input className="signup-input" type="text" name="location" placeholder="Location" value={technician.location} onChange={handleChange} />
           </div>
           <div id="input-six">
-            <input className="signup-input" type="password" name="password" placeholder="Password" value={technician.password} onChange={handleChange} required />
+            <input className="signup-input" type="text" name="availabilityStatus" placeholder="Availability Status" value={technician.availabilityStatus} onChange={handleChange} />
           </div>
           <div id="input-seven">
+            <input className="signup-input" type="password" name="password" placeholder="Password" value={technician.password} onChange={handleChange} required />
+          </div>
+          <div id="input-eight">
             <input className="signup-input" type="password" name="confirmPassword" placeholder="Confirm Password" value={technician.confirmPassword} onChange={handleChange} required />
           </div>
         </div>
@@ -96,7 +110,7 @@ const SignupTech = () => {
         {error && <p style={{ color: "red" }}>{error}</p>}
         {success && <p className="success-message" style={{ color: "green" }}>Registration successful!</p>}
         
-        <button id="signup-button" type="submit">Register</button>
+        <button id="signup-button" type="submit"><h3>Create Account</h3></button>
       </form>
     </div>
   );

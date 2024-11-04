@@ -65,7 +65,7 @@ const SignupClient = () => {
       
       <form onSubmit={handleSubmit} id="signup-form">
         <img id="logo" src={logo} alt="Logo" />
-        <h2 id="client-subheading">Enter New Client Details</h2>
+        <h2 id="client-subheading">Enter New Client Details:</h2>
 
         <div id="input-container">
           <div id="input-one"> 
@@ -91,7 +91,7 @@ const SignupClient = () => {
         {error && <p style={{ color: "red" }}>{error}</p>}
         {success && <p className="success-message" style={{ color: "green" }}>Registration successful!</p>}
         
-        <button id="signup-button" type="submit">Register</button>
+        <button id="signup-button" type="submit"><h3>Create Account</h3></button>
       </form>
     </div>
   );
