@@ -107,5 +107,27 @@ namespace Proj2WebAPI.Controllers
             return _context.ServiceRequests.Any(e => e.ServiceRequestId == id);
         }
 
+        // GET: api/data/feedback
+        [HttpGet("feedback")]
+        public async Task<ActionResult<IEnumerable<Feedback>>> GetAllFeedback()
+        {
+            var feedback = await _context.Feedback.ToListAsync();
+            return Ok(feedback);
+        }
+
+        // POST: api/data/feedback
+        [HttpPost("feedback")]
+        public async Task<ActionResult<Feedback>> PostFeedback([FromBody] Feedback feedback)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            _context.Feedback.Add(feedback);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetAllFeedback), new { id = feedback.FeedbackId }, feedback);
+        }
+
+
     }
 }

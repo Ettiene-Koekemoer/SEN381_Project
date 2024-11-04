@@ -12,6 +12,7 @@ namespace Proj2WebAPI.Data
         public DbSet<Client> Clients { get; set; }
         public DbSet<ServiceRequest> ServiceRequests { get; set; }
         public DbSet<Contract> Contracts { get; set; }
+        public DbSet<Feedback> Feedback { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
