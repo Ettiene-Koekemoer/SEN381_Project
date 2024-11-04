@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import '../styling/Login.css';
+import '../styling/App.css';
 import logo from '../images/finalLogo.png';
 import arrow from '../images/arrow.png';
 

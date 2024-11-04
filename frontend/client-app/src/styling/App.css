@@ -121,6 +121,20 @@ tr:hover {
 }
 
 /* Sign Up */
+#signup-form {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 570px;
+  width: 92%;
+  margin-bottom: 30px;
+  background: linear-gradient(90deg, rgba(89, 143, 242, 0.15) 0%, rgba(51.49, 82.73, 140, 0.15) 100%);
+  border-style: none;
+  border-radius: 30px;
+  margin-left: 3.5%;
+  margin-top: 3.5%;
+}
+
 #signup-button {
   background: #1E4CA1;
   border-radius: 30px;
@@ -130,9 +144,9 @@ tr:hover {
   padding: 2px 10px;
   width: 40%;
   height: 55px;
-  margin-bottom: 5px;
+  margin-bottom: 35px;
   margin-left: 30%;
-  margin-top: -7px;
+  
 }
 
 #signup-login-button {
@@ -148,9 +162,9 @@ tr:hover {
   margin-left: 30%;
   margin-top: 5px;
 }
-  
+
 .signup-input {
-  width: 37%;
+  width: 500px;
   height: 25px;
   text-align: center;
   font-size: medium;
@@ -162,15 +176,65 @@ tr:hover {
 }
 
 #signup-input-div {
-  display: flex;
-  flex-direction: column;
+ 
   margin-top: -25px;
   margin-bottom: 10px;
+}
+
+#input-container {
+  
+  display: grid;
+  grid-template-columns: 2;
+  grid-template-rows: 3;
+  margin: auto;
+  column-gap: 40px;
+
+}
+
+#input-one {
+  grid-column-start: 0;
+  grid-column-end: 1;
+  grid-row: 1/1;
+  
+}
+
+#input-two {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row: 1/1;
+  
+}
+
+#technician-subheading {
+  color: #1E4CA1;
+}
+
+form h2 {
+  margin-top: -20px;
+}
+
+.success-message {
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 /* Login */
 #error-message {
   color: red;
+}
+  
+#login-form {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 540px;
+  width: 92%;
+  margin-bottom: 30px;
+  background: linear-gradient(90deg, rgba(89, 143, 242, 0.15) 0%, rgba(51.49, 82.73, 140, 0.15) 100%);
+  border-style: none;
+  border-radius: 30px;
+  margin-left: 3.5%;
+  margin-top: 3.5%;
 }
 
 #login-button {
@@ -188,7 +252,7 @@ tr:hover {
 }
 
 .login-input {
-  width: 37%;
+  width: 40%;
   height: 30px;
   text-align: center;
   font-size: medium;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import '../styling/SignUp.css';
+import '../styling/App.css';
 import logo from '../images/finalLogo.png';
 import arrow from '../images/arrow.png';
 import { useNavigate } from "react-router-dom";
