@@ -77,12 +77,15 @@ function Login({ accountType }) {
       <form id='login-form' onSubmit={handleSubmit}>
         <img id="logo" src={logo} alt="Logo" />
         
+        <label><h3>Email:</h3></label>
         <input
           className='login-input'
           name="email" 
           placeholder="Email" 
           onChange={handleChange}
         />
+
+        <label><h3>Password:</h3></label>
         <input
           className='login-input'
           name="password"
@@ -91,8 +94,9 @@ function Login({ accountType }) {
           onChange={handleChange}
         />
         
-        <button id='login-button' type="submit">Log In</button>
-        <button id='login-signup-button' type="button" onClick={GoToSignup}>Sign Up</button>
+        <button id='login-button' type="submit"><h3>Log In</h3></button>
+        <h4>Don't have an account?</h4>
+        <button id='login-signup-button' type="button" onClick={GoToSignup}><h3>Sign Up</h3></button>
       </form>
       {error && <p className="error">{error}</p>}
       {successMessage && <p className="success">{successMessage}</p>}
