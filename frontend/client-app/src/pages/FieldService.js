@@ -29,9 +29,18 @@ function FieldService() {
         setIssueDescription(request.issueDescription);
         setPriority(request.priority);
         setStatus(request.status);
-        setAssignedDate(request.assignedDate);
-        setResolutionDate(request.resolutionDate || '');
+        setAssignedDate(formatDateForInput(request.assignedDate));
+        setResolutionDate(formatDateForInput(request.resolutionDate) || '');
         setMessage(''); 
+    };
+
+    const formatDateForInput = (date) => {
+        if (!date) return ''; // Return empty string if no date
+        const d = new Date(date);
+        const year = d.getFullYear();
+        const month = String(d.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
+        const day = String(d.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`; // Return in YYYY-MM-DD format
     };
 
     const handleUpdate = async (e) => {

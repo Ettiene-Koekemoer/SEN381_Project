@@ -27,9 +27,9 @@ namespace Proj2WebAPI.Models
         [StringLength(50)]
         public string Status { get; set; }
 
-        public DateTime? AssignedDate { get; set; } 
+        public DateOnly? AssignedDate { get; set; } 
 
-        public DateTime? ResolutionDate { get; set; } 
+        public DateOnly? ResolutionDate { get; set; } 
 
         // Navigation properties
         [ForeignKey("ClientId")]
