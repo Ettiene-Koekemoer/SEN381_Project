@@ -33,9 +33,9 @@ namespace Proj2WebAPI.Models
 
         // Navigation properties
         [ForeignKey("ClientId")]
-        public Client Client { get; set; }
+        public Client? Client { get; set; }
 
         [ForeignKey("TechnicianId")]
-        public Technician Technician { get; set; }
+        public Technician? Technician { get; set; }
     }
 }
