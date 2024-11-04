@@ -37,12 +37,14 @@ const SignupTech = () => {
     }
 
     const technicianData = {
+      technicianId: 0,
       name: `${technician.name} ${technician.surname}`,
       email: technician.email,
       skillSet: technician.skillSet,
       location: technician.location,
       availabilityStatus: technician.availabilityStatus,
       password: technician.password,
+      confirmPassword: technician.confirmPassword,
     };
 
     try {

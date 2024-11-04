@@ -72,7 +72,7 @@ function Login({ accountType }) {
             backgroundColor="white"
           />
         </button>
-        <h1>{accountType.charAt(0).toUpperCase() + accountType.slice(1)} Login</h1>
+        <h1>{(accountType ? accountType.charAt(0).toUpperCase() + accountType.slice(1) : "Account")} Login</h1>
       </header>
       <form id='login-form' onSubmit={handleSubmit}>
         <img id="logo" src={logo} alt="Logo" />
