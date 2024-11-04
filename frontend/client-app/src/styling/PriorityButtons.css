@@ -1,0 +1,32 @@
+.priority-buttons {
+    display: flex;
+    border: 1px solid #ccc; /* To maintain the border appearance */
+    border-radius: 30px; /* Rounded corners */
+    overflow: hidden; /* Ensures rounded corners apply correctly */
+    margin: 10px 0;  
+    width: 400px;
+    height: 50px;
+}
+
+.status-button {
+    flex: 1; 
+    border: none; 
+    padding: 10px; 
+    cursor: pointer; 
+    background-color: #f0f0f0; 
+    transition: background-color 0.3s;
+}
+
+.status-button:hover {
+    background-color: #e0e0e0; 
+}
+
+.status-button.active {
+    background-color: #1E4CA1; /* Darker color for the active button */
+    color: white; 
+}
+
+/* Remove the width style from individual buttons */
+.status-button {
+    width: auto; /* Let the flexbox handle width */
+}
