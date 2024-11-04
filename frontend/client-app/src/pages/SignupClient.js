@@ -6,8 +6,8 @@ import arrow from '../images/arrow.png';
 import { useNavigate } from "react-router-dom";
 
 const SignupClient = () => {
-  const goToDashboard = () => {
-    window.location.href = '/dashboardClient';
+  const goToLandingPage = () => {
+    window.location.href = '/';
   };
 
   const [client, setClient] = useState({
@@ -57,7 +57,7 @@ const SignupClient = () => {
   return (
     <div className="App">
       <header className="nav">
-        <button onClick={goToDashboard} className="dashboard-button">
+        <button onClick={goToLandingPage} className="dashboard-button">
           <img src={arrow} alt="Arrow" width="50" height="50" backgroundColor="white" />
         </button>
         <h1>Client Signup</h1>
