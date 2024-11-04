@@ -6,8 +6,8 @@ import arrow from '../images/arrow.png';
 import { useNavigate } from "react-router-dom";
 
 const SignupTech = () => {
-  const goToDashboard = () => {
-    window.location.href = '/dashboardTech';
+  const goToLandingPage = () => {
+    window.location.href = '/';
   };
 
   const [technician, setTechnician] = useState({
@@ -70,7 +70,7 @@ const SignupTech = () => {
   return (
     <div className="App">
       <header className="nav">
-        <button onClick={goToDashboard} className="dashboard-button">
+        <button onClick={goToLandingPage} className="dashboard-button">
           <img src={arrow} alt="Arrow" width="50" height="50" backgroundColor="white" />
         </button>
         <h1>Technician Signup</h1>
