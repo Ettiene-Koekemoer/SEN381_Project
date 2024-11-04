@@ -16,17 +16,17 @@ const ClientDetails = () => {
     return (
         <div className="client-details-container">
             <div className="client-detail inline">
-                <label>Client ID:</label>
+                <label><h3>Client ID:</h3></label>
                 <input type="text" value={client.clientId || 'N/A'} readOnly />
-                <label>Client Name:</label>
+                <label><h3>Client Name:</h3></label>
                 <input type="text" value={client.name || 'N/A'} readOnly />
             </div>
             <div className="client-detail inline">
-                <label>Email:</label>
+                <label><h3>Email:</h3></label>
                 <input type="text" value={client.email || 'N/A'} readOnly />
-                <label>Phone:</label>
+                <label><h3>Phone:</h3></label>
                 <input type="text" value={client.phone || 'N/A'} readOnly />
-                <label>Address:</label>
+                <label><h3>Address:</h3></label>
                 <input type="text" value={client.address || 'N/A'} readOnly />
             </div>
         </div>

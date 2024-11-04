@@ -115,19 +115,75 @@ namespace Proj2WebAPI.Controllers
             return Ok(feedback);
         }
 
+        // 
+        [HttpGet("clientId")]
+        public async Task<ActionResult<int>> GetClientIdByNameAndSurname(string name)
+        {
+            var client = await _context.Clients
+                .FirstOrDefaultAsync(c => c.Name == name);
+
+            if (client == null)
+            {
+                return NotFound("Client not found");
+            }
+
+            return Ok(client.ClientId);
+        }
+
+        // New GET: api/data/serviceRequests/search?name={name}&serviceRequestId={serviceRequestId}
+        [HttpGet("serviceRequests/search")]
+        public async Task<ActionResult<IEnumerable<ServiceRequest>>> SearchServiceRequests(
+            [FromQuery] string name,
+            [FromQuery] int? serviceRequestId)
+        {
+            // Retrieve the client based on the name
+            var client = await _context.Clients.FirstOrDefaultAsync(c => c.Name == name);
+            if (client == null)
+            {
+                return NotFound("Client not found");
+            }
+
+            // Now filter service requests based on the client ID and optional service request ID
+            IQueryable<ServiceRequest> query = _context.ServiceRequests
+                .Include(sr => sr.Client)
+                .Include(sr => sr.Technician);
+
+            query = query.Where(sr => sr.ClientId == client.ClientId);
+
+            if (serviceRequestId.HasValue)
+            {
+                query = query.Where(sr => sr.ServiceRequestId == serviceRequestId.Value);
+            }
+
+            var result = await query.ToListAsync();
+
+            if (!result.Any())
+            {
+                return NotFound("No service requests found matching the criteria.");
+            }
+
+            return Ok(result);
+        }
+
         // POST: api/data/feedback
         [HttpPost("feedback")]
-        public async Task<ActionResult<Feedback>> PostFeedback([FromBody] Feedback feedback)
+        public async Task<ActionResult> SubmitFeedback([FromBody] Feedback feedback)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            if (feedback == null)
+            {
+                return BadRequest("Feedback cannot be null");
+            }
+
+            if (feedback.ClientId <= 0 || feedback.ServiceRequestId <= 0 || feedback.Rating < 1 || feedback.Rating > 5)
+            {
+                return BadRequest("Invalid data provided");
+            }
 
             _context.Feedback.Add(feedback);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetAllFeedback), new { id = feedback.FeedbackId }, feedback);
+            return Ok("Feedback submitted successfully");
         }
-
 
     }
 }
