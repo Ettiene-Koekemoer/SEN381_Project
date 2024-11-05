@@ -107,36 +107,72 @@ namespace Proj2WebAPI.Controllers
         [HttpPatch("serviceRequests/{id}")]
         public async Task<IActionResult> PatchServiceRequest(int id, [FromBody] JsonPatchDocument<ServiceRequest> patchDocument)
         {
+            // Check if the patch document is null
             if (patchDocument == null)
             {
                 return BadRequest("Patch document is null.");
             }
 
+            // Find the existing service request
             var serviceRequest = await _context.ServiceRequests.FindAsync(id);
             if (serviceRequest == null)
             {
                 return NotFound($"Service request with ID {id} not found.");
             }
 
+            // Apply the patch to the service request
+            patchDocument.ApplyTo(serviceRequest, ModelState);
+
+            // Log ModelState for debugging
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new
+                {
+                    Message = "ModelState is invalid",
+                    Errors = ModelState
+                });
+            }
+
+            // Save changes to the database
+            await _context.SaveChangesAsync();
+
+            return NoContent(); // Return a No Content status on success
+        }
+
+        [HttpPatch("contracts/{id}")]
+        public async Task<IActionResult> PatchContract(int id, [FromBody] JsonPatchDocument<Contract> patchDocument)
+        {
+            if (patchDocument == null)
+            {
+                return BadRequest("Patch document is null.");
+            }
+
+            var existingContract = await _context.Contracts.FindAsync(id);
+            if (existingContract == null)
+            {
+                return NotFound();
+            }
+
+            // Apply the patch document to the existing contract
+            patchDocument.ApplyTo(existingContract, ModelState);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             try
             {
-                patchDocument.ApplyTo(serviceRequest, (Microsoft.AspNetCore.JsonPatch.Adapters.IObjectAdapter)ModelState);
-
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(ModelState);
-                }
-
                 await _context.SaveChangesAsync();
             }
-            catch (Exception ex)
+            catch (DbUpdateException ex)
             {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
+                // Handle the DbUpdateException here
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
 
             return NoContent();
         }
-
         private bool ServiceRequestExists(int id)
         {
             return _context.ServiceRequests.Any(e => e.ServiceRequestId == id);
