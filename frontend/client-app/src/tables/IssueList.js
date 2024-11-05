@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
-function IssueList({ onSelectIssue }) {
+function IssueList({ onSelectIssue, refresh }) {
   const [serviceRequests, setServiceRequests] = useState([]);
 
   useEffect(() => {
-    fetch('https://localhost:7031/api/Data/serviceRequests')
-      .then(response => response.json())
-      .then(data => {
+    const fetchServiceRequests = async () => {
+      try {
+        const response = await fetch('https://localhost:7031/api/Data/serviceRequests');
+        const data = await response.json();
+
         const filteredRequests = data.filter(request => request.technicianId === null);
-        const requestsWithClientInfo = Promise.all(
+        const requestsWithClientInfo = await Promise.all(
           filteredRequests.map(async (request) => {
             const clientResponse = await fetch(`https://localhost:7031/api/auth/client/${request.clientId}`);
             const clientData = await clientResponse.json();
@@ -20,11 +22,15 @@ function IssueList({ onSelectIssue }) {
             };
           })
         );
-        return requestsWithClientInfo;
-      })
-      .then(requestsWithClientInfo => setServiceRequests(requestsWithClientInfo))
-      .catch(error => console.error('Error fetching data:', error));
-  }, []);
+
+        setServiceRequests(requestsWithClientInfo);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchServiceRequests(); // Fetch service requests on initial render and when refresh changes
+  }, [refresh]); // Re-run effect when refresh changes
 
   return (
     <div className="field-issue-list">

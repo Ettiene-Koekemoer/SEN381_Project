@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styling/PriorityButtons.css';
 
-const PriorityButtons = ({ setSelectedPriority }) => {
-    const [selected, setSelected] = useState(null);
+const PriorityButtons = ({ setSelectedPriority, initialPriority }) => {
+    const [selected, setSelected] = useState(initialPriority);
+
+    useEffect(() => {
+        setSelected(initialPriority); // Set the selected state based on the initial priority passed in
+    }, [initialPriority]);
 
     const toggleButton = (priority) => {
         const newSelected = (selected === priority) ? null : priority;
@@ -11,7 +15,6 @@ const PriorityButtons = ({ setSelectedPriority }) => {
         setSelectedPriority(newSelected ? capitalizeFirstLetter(newSelected) : null);
     };
 
-    // Function to capitalize the first letter of a string
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     };

@@ -617,7 +617,7 @@ main, .sendDetails{
   align-items: center;
   padding-bottom: 50px;
 }
-.field-issue-list{
+.field-issue-list, .contract-list{
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -634,6 +634,13 @@ main, .sendDetails{
   align-items: center;
   
   width: 80%;
+}
+
+.middle-left{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
 }
 
 .bottom-left, .bottom-right{
@@ -676,4 +683,120 @@ main, .sendDetails{
   border-radius: 30px;
   margin: 30px;
   align-items: center;
+}
+
+.field-top-client-management, .field-middle-client-management{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 40px;
+ 
+  
+}
+
+.field-middle-client-management{
+  width: 80%;
+  padding: 30px;
+  background: linear-gradient(90deg, rgba(89, 143, 242, 0.15) 0%, rgba(51.49, 82.73, 140, 0.15) 100%);
+  border-radius: 30px;
+  margin: 30px;
+}
+
+.field-top-client-management table{
+ width: 1300px;
+ 
+  
+}
+
+.field-bottom-client-management{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  width: 80%;
+  padding: 30px;
+  height: 400px;
+  
+}
+
+.field-bottom-client-management .button-group{
+  padding-top: 30px;
+  
+}
+
+.left-right{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+ 
+}
+
+.line-break{
+  width: 100%;
+  border: 1px solid black;
+}
+
+/* ------------------------------------------------------ */
+.contract-type-buttons {
+  display: flex;
+  width: 100%; /* Ensures the group takes up the available space */
+  max-width: 400px; /* Optional: set a maximum width for consistency */
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.contract-button {
+  flex: 1; /* Ensures all buttons take equal space */
+  border: none;
+  padding: 10px 0; /* Vertically center the text */
+  cursor: pointer;
+  background-color: #f0f0f0;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.contract-button.active {
+  background-color: #1E4CA1;
+  color: white;
+}
+
+.contract-button:not(:last-child) {
+  border-right: 1px solid #ccc;
+}
+
+.contract-button:hover {
+  background-color: #e0e0e0;
+}
+/* --------------------------------------------------------------- */
+
+.contract-status-buttons {
+  display: flex;
+  width: 100%;
+  max-width: 400px; /* Optional: set a maximum width for consistency */
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.status-button {
+  flex: 1; /* Ensures all buttons are the same size */
+  border: none;
+  padding: 10px 0;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.status-button.active {
+  background-color: #1E4CA1;
+  color: white;
+}
+
+.status-button:hover {
+  background-color: #e0e0e0;
 }
