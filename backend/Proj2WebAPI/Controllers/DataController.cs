@@ -121,7 +121,10 @@ namespace Proj2WebAPI.Controllers
             }
 
             // Apply the patch to the service request
-            patchDocument.ApplyTo(serviceRequest, ModelState);
+            patchDocument.ApplyTo(serviceRequest, (error) =>
+            {
+                ModelState.AddModelError(error.Operation?.path ?? string.Empty, error.ErrorMessage);
+            });
 
             // Log ModelState for debugging
             if (!ModelState.IsValid)
@@ -154,7 +157,10 @@ namespace Proj2WebAPI.Controllers
             }
 
             // Apply the patch document to the existing contract
-            patchDocument.ApplyTo(existingContract, ModelState);
+            patchDocument.ApplyTo(existingContract, (error) =>
+            {
+                ModelState.AddModelError(error.Operation?.path ?? string.Empty, error.ErrorMessage);
+            });
 
             if (!ModelState.IsValid)
             {
