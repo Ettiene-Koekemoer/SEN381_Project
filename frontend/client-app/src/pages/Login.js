@@ -1,22 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../styling/App.css';
 import logo from '../images/finalLogo.png';
 import arrow from '../images/arrow.png';
+import { UserContext } from '../components/UserContext';
 
-function Login({ accountType }) {
-  const goToDashboard = () => {
-    window.location.href = '/';
-  };
-
+function Login() {
+  const { accountType } = useContext(UserContext); 
   const [formData, setFormData] = useState({
     email: '',  
     password: '',
   });
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false); 
   const navigate = useNavigate();
 
   const GoToSignup = () => {
@@ -43,8 +40,7 @@ function Login({ accountType }) {
 
       const response = await axios.post('https://localhost:7031/api/auth/login', payload);
       if (response.data) { 
-        setSuccessMessage('Login successful!'); 
-        setIsLoggedIn(true); 
+        setSuccessMessage('Login successful!');
         
         if (accountType === 'technician') {
           navigate('/dashboardTech'); 
@@ -53,7 +49,6 @@ function Login({ accountType }) {
         }
       } else {
         setError('Login failed. Please check your email and password.');
-        document.querySelectorAll('.login-input').forEach(input => input.style.border = "2px solid red");
       }
     } catch (err) {
       setError(err.response?.data?.message || 'An error occurred');
@@ -63,20 +58,13 @@ function Login({ accountType }) {
   return (
     <div className="App">
       <header className='nav'>
-        <button onClick={goToDashboard} className="dashboard-button">
-          <img
-            src={arrow}
-            alt="Arrow"
-            width="50"
-            height="50"
-            backgroundColor="white"
-          />
+        <button onClick={() => navigate('/')} className="dashboard-button">
+          <img src={arrow} alt="Arrow" width="50" height="50" />
         </button>
         <h1>{(accountType ? accountType.charAt(0).toUpperCase() + accountType.slice(1) : "Account")} Login</h1>
       </header>
       <form id='login-form' onSubmit={handleSubmit}>
         <img id="logo" src={logo} alt="Logo" />
-        
         <label><h3>Email:</h3></label>
         <input
           className='login-input'
@@ -84,7 +72,6 @@ function Login({ accountType }) {
           placeholder="Email" 
           onChange={handleChange}
         />
-
         <label><h3>Password:</h3></label>
         <input
           className='login-input'

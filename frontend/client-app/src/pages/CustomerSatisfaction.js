@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styling/App.css';
 import arrow from '../images/arrow.png';
-import StarRating from '../StarRating';
+import StarRating from '../components/StarRating';
 
 function CustomerSatisfaction() {
   const [professionalismRating, setProfessionalismRating] = useState(0);

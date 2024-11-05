@@ -1,29 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import '../styling/App.css';
 import logo from '../images/finalLogo.png';
-import Login from './Login'; // Import the Login component
+import Login from './Login';
+import { UserContext } from '../components/UserContext'; 
 
 function LandingPage() {
-
   const [currentPage, setCurrentPage] = useState('landingpage');
-  const [accountType, setAccountType] = useState(null); // State to store selected account type
+  const { setAccountType } = useContext(UserContext); 
 
   const handleAccountSelection = (type) => {
-    setAccountType(type);
-    setCurrentPage('login'); // Set to login page after account selection
+    setAccountType(type); 
+    setCurrentPage('login'); 
   };
 
   const renderComponent = () => {
     switch (currentPage) {
       case 'login':
-        return <Login accountType={accountType} />; // Pass accountType as a prop to Login
+        return <Login />; 
       default:
         return (
           <div className='App'>
             <header className='nav'>
               <h1>Welcome</h1>
             </header>
-
             <div className="dashboard-container">
               <img className="logo" src={logo} alt="Logo" />
               <h2>Please Select Your Account Type</h2>

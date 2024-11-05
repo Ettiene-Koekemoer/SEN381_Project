@@ -1,5 +1,5 @@
 import React from 'react';
-import './styling/App.css'; 
+import '../styling/App.css'; 
 
 const StarRating = ({ rating, setRating }) => {
   const stars = Array(5).fill(0); 
