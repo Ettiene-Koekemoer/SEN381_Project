@@ -3,23 +3,27 @@ import axios from 'axios';
 import '../styling/App.css';
 import { setActiveContract } from '../state/activeContract';
 
-const ContractsTable = () => {
+const ContractsTable = ({ onContractSelect, refreshContracts }) => {
     const [contracts, setContracts] = useState([]);
 
     useEffect(() => {
-        axios.get(`https://localhost:7031/api/data/contracts`)
-            .then(response => {
+        const fetchContracts = async () => {
+            try {
+                const response = await axios.get(`https://localhost:7031/api/data/contracts`);
                 setContracts(response.data);
-            })
-            .catch(error => {
+            } catch (error) {
                 console.error('There was an error fetching the contracts!', error);
-            });
-    }, []);
+            }
+        };
+
+        fetchContracts();
+    }, [refreshContracts]); // Re-fetch contracts when refreshContracts changes
 
     const handleContractClick = (contractId) => {
         axios.get(`https://localhost:7031/api/data/contracts/${contractId}`)
             .then(response => {
                 setActiveContract(response.data);
+                onContractSelect(response.data);
             })
             .catch(error => {
                 console.error('There was an error fetching the contract details!', error);
@@ -30,14 +34,13 @@ const ContractsTable = () => {
         if (!date) return 'N/A';
         const d = new Date(date);
         const day = String(d.getDate()).padStart(2, '0');
-        const month = String(d.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+        const month = String(d.getMonth() + 1).padStart(2, '0');
         const year = d.getFullYear();
         return `${day}/${month}/${year}`;
     };
 
     return (
         <div>
-            <h2 id='contractsHeading'>Contract History</h2>
             <table id='contracts'>
                 <thead>
                     <tr>
@@ -63,7 +66,7 @@ const ContractsTable = () => {
                         ))
                     ) : (
                         <tr>
-                            <td colSpan="6">No contracts available.</td>
+                            <td colSpan="6">No Contracts Available</td>
                         </tr>
                     )}
                 </tbody>
